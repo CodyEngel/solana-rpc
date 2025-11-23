@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Solana RPC",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

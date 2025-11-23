@@ -1,0 +1,35 @@
+meta {
+  name: getBlockCommitment
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getBlockCommitment",
+    "params": [
+      {{slot}}
+    ]
+  }
+}
+
+vars:pre-request {
+  slot: 5
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

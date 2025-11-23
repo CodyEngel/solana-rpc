@@ -1,0 +1,29 @@
+meta {
+  name: getVersion
+  type: http
+  seq: 46
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getVersion",
+    "params": []
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

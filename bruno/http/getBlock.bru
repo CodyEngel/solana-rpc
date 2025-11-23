@@ -1,0 +1,39 @@
+meta {
+  name: getBlock
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getBlock",
+    "params": [
+      {{slot}},
+      {
+        "encoding": "json",
+        "maxSupportedTransactionVersion": 0
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  slot: 430
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

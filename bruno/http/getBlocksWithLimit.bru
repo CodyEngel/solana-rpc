@@ -1,0 +1,37 @@
+meta {
+  name: getBlocksWithLimit
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getBlocksWithLimit",
+    "params": [
+      {{startSlot}},
+      {{limit}}
+    ]
+  }
+}
+
+vars:pre-request {
+  startSlot: 5
+  limit: 3
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

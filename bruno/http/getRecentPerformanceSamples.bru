@@ -1,0 +1,35 @@
+meta {
+  name: getRecentPerformanceSamples
+  type: http
+  seq: 30
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getRecentPerformanceSamples",
+    "params": [
+      {{limit}}
+    ]
+  }
+}
+
+vars:pre-request {
+  limit: 4
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

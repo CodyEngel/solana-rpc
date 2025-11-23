@@ -1,0 +1,29 @@
+meta {
+  name: getRecentPrioritizationFees
+  type: http
+  seq: 28
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getRecentPrioritizationFees",
+    "params": []
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

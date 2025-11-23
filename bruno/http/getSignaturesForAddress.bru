@@ -1,0 +1,38 @@
+meta {
+  name: getSignaturesForAddress
+  type: http
+  seq: 31
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getSignaturesForAddress",
+    "params": [
+      "{{address}}",
+      {
+        "limit": 10
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  address: Vote111111111111111111111111111111111111111
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

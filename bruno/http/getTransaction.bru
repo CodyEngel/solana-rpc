@@ -1,0 +1,40 @@
+meta {
+  name: getTransaction
+  type: http
+  seq: 44
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getTransaction",
+    "params": [
+      "{{signature}}",
+      {
+        "commitment": "confirmed",
+        "maxSupportedTransactionVersion": 0,
+        "encoding": "json"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  signature: c9TFdNr6aoDyDFRqcgNv3ycmWKtiy3qQYp7x8cBY47935awihAxKZZZUWxyhyEoZk4nKtYDyaFYQEkWoKUyTTo6
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

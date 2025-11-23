@@ -1,0 +1,29 @@
+meta {
+  name: getClusterNodes
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getClusterNodes",
+    "params": []
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

@@ -1,0 +1,38 @@
+meta {
+  name: getTokenSupply
+  type: http
+  seq: 43
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getTokenSupply",
+    "params": [
+      "{{mint}}",
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  mint: MEFNBXixkEbait3xn9bkm8WsJzXtVsaJEn4c8Sam21u
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

@@ -1,0 +1,40 @@
+meta {
+  name: getInflationReward
+  type: http
+  seq: 21
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getInflationReward",
+    "params": [
+      [
+        "{{address}}"
+      ],
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  address: 6dmNQ5jwLeLk5REvio1JcMshcbvkYMwy26sJ8pbkvStu
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

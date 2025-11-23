@@ -1,0 +1,29 @@
+meta {
+  name: getMaxShredInsertSlot
+  type: http
+  seq: 26
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getMaxShredInsertSlot",
+    "params": []
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

@@ -1,0 +1,35 @@
+meta {
+  name: getBlockTime
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getBlockTime",
+    "params": [
+      {{slot}}
+    ]
+  }
+}
+
+vars:pre-request {
+  slot: 5
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

@@ -1,0 +1,38 @@
+meta {
+  name: getBalance
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getBalance",
+    "params": [
+      "{{account}}",
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  account: 83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

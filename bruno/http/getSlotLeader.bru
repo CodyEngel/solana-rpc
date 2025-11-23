@@ -1,0 +1,33 @@
+meta {
+  name: getSlotLeader
+  type: http
+  seq: 34
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getSlotLeader",
+    "params": [
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

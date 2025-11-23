@@ -1,0 +1,38 @@
+meta {
+  name: getTokenAccountBalance
+  type: http
+  seq: 39
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getTokenAccountBalance",
+    "params": [
+      "{{tokenAccount}}",
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  tokenAccount: 55LV5KmCG9u8eLWW7DMZB2NTu2UZefVhLEXnDGcQMMaE
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

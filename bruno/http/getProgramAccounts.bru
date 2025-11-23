@@ -1,0 +1,39 @@
+meta {
+  name: getProgramAccounts
+  type: http
+  seq: 29
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getProgramAccounts",
+    "params": [
+      "{{programId}}",
+      {
+        "commitment": "finalized",
+        "encoding": "base58"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  programId: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

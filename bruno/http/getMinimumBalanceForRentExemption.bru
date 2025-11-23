@@ -1,0 +1,38 @@
+meta {
+  name: getMinimumBalanceForRentExemption
+  type: http
+  seq: 27
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getMinimumBalanceForRentExemption",
+    "params": [
+      {{dataLength}},
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  dataLength: 50
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

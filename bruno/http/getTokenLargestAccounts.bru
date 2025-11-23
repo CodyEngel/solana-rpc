@@ -1,0 +1,38 @@
+meta {
+  name: getTokenLargestAccounts
+  type: http
+  seq: 42
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getTokenLargestAccounts",
+    "params": [
+      "{{mint}}",
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  mint: 3wyAj7Rt1TWVPZVteFJPLa26JmLvdb1CAKEFZm3NY75E
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

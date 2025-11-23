@@ -1,0 +1,42 @@
+meta {
+  name: getTokenAccountsByOwner
+  type: http
+  seq: 41
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getTokenAccountsByOwner",
+    "params": [
+      "{{owner}}",
+      {
+        "programId": "{{programId}}"
+      },
+      {
+        "encoding": "jsonParsed"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  owner: 4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T
+  programId: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

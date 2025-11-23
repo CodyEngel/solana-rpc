@@ -1,0 +1,39 @@
+meta {
+  name: getAccountInfo
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getAccountInfo",
+    "params": [
+      "{{account}}",
+      {
+        "commitment": "finalized",
+        "encoding": "base58"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  account: CfGCoZ7KsA4tTwbpvJ5SB7enVGCm5KqqAaRPZEg6rg3d
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

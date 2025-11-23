@@ -1,0 +1,37 @@
+meta {
+  name: requestAirdrop
+  type: http
+  seq: 49
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "requestAirdrop",
+    "params": [
+      "{{address}}",
+      {{lamports}}
+    ]
+  }
+}
+
+vars:pre-request {
+  address: 83astBRguLMdt2h5U1Tpdq5tjFoJ6noeGwaY3mDLVcri
+  lamports: 1000000000
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

@@ -1,0 +1,40 @@
+meta {
+  name: getSignatureStatuses
+  type: http
+  seq: 32
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getSignatureStatuses",
+    "params": [
+      [
+        "{{signature}}"
+      ],
+      {
+        "searchTransactionHistory": true
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  signature: 5Pj5fCupXLUePYn18JkY8SrRaWFiUctuDTRwvUy2ML9yvkENLb1QMYbcBGcBXRrSVDjp7RjUwk9a3rLC6gpvtYpZ
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

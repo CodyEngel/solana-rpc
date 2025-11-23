@@ -1,0 +1,38 @@
+meta {
+  name: isBlockhashValid
+  type: http
+  seq: 47
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "isBlockhashValid",
+    "params": [
+      "{{blockhash}}",
+      {
+        "commitment": "finalized"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  blockhash: J7rBdM6AecPDEZp8aPq5iPSNKVkU5Q76F3oAV4eW5wsW
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

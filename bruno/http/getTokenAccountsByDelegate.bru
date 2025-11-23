@@ -1,0 +1,42 @@
+meta {
+  name: getTokenAccountsByDelegate
+  type: http
+  seq: 40
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "getTokenAccountsByDelegate",
+    "params": [
+      "{{delegate}}",
+      {
+        "mint": "{{mint}}"
+      },
+      {
+        "encoding": "jsonParsed"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  delegate: 4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T
+  mint: 3wyAj7Rt1TWVPZVteFJPLa26JmLvdb1CAKEFZm3NY75E
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}
